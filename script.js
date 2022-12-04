@@ -10,7 +10,14 @@ function flipCard() {
     hasFlippedCard = true;
     firstCard = this;
   } else {
-    hasFlippedCard;
+    //  second click
+    hasFlippedCard = false;
+    secondCard = this;
+
+    // console.log({ firstCard, secondCard });
+    //  Do cards match?
+    // console.log(firstCard.dataset.framework);
+    // console.log(secondCard.dataset.framework);
   }
 }
 
