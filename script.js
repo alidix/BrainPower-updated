@@ -5,14 +5,10 @@ let firstCard, secondCard;
 
 function flipCard() {
   this.classList.add("flip");
-  //   this.classList.toggle("flip");
-  //     console.log("I was clicked");
-  //     console.log(this);
   if (!hasFlippedCard) {
     // first click
     hasFlippedCard = true;
     firstCard = this;
-    // console.log({ hasFlippedCard, firstCard });
   } else {
     hasFlippedCard;
   }
