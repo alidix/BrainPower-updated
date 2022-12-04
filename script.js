@@ -5,6 +5,7 @@ let firstCard, secondCard;
 
 function flipCard() {
   this.classList.add("flip");
+
   if (!hasFlippedCard) {
     // first click
     hasFlippedCard = true;
@@ -25,8 +26,10 @@ function flipCard() {
       // console.log("Function was executed!");
     } else {
       // not a match
-      firstCard.classList.remove("flip");
-      secondCard.classList.remove("flip");
+      setTimeout(() => {
+        firstCard.classList.remove("flip");
+        secondCard.classList.remove("flip");
+      }, 1500);
     }
   }
 }
