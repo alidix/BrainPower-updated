@@ -1,4 +1,5 @@
 const cards = document.querySelectorAll(".memory-card");
+const resetButton = document.querySelector(".rest-button");
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -56,6 +57,7 @@ function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
 }
+resetButton.addEventListener("click", flipCard);
 
 (function shuffle() {
   cards.forEach((card) => {
@@ -63,5 +65,9 @@ function resetBoard() {
     card.style.order = randomPos;
   });
 })();
+
+// return all global variables back to default
+
+// flip cards back over
 
 cards.forEach((cards) => cards.addEventListener("click", flipCard));
