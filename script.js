@@ -8,7 +8,7 @@ let counter = 0;
 
 function flipCard() {
   if (lockBoard) return;
-  if (this === firstCard) return;
+  // if (this === firstCard) return;
 
   this.classList.add("flip");
 
@@ -43,45 +43,46 @@ function checkForMatch() {
     counter++;
   }
   isMatch ? disableCards() : unflipCards();
-  console.log(counter);
+  // console.log(counter);
 }
 function disableCards() {
   firstCard.removeEventListener("click", flipCard);
   secondCard.removeEventListener("click", flipCard);
-
-  resetBoard();
 }
 
 function unflipCards() {
   lockBoard = true;
 
   setTimeout(() => {
-    firstCard.classList.remove("flip");
-    secondCard.classList.remove("flip");
-
-    resetBoard();
+    continueBoard();
   }, 1500);
 }
 
-function resetBoard() {
-  // [hasFlippedCard, lockBoard] = [false, false];
+function continueBoard() {
   hasFlippedCard = false;
-  // console.log(hasFlippedCard);
   lockBoard = false;
-  // console.log(lockBoard);
-  [firstCard, secondCard] = [null, null];
+  firstCard.classList.remove("flip");
+  secondCard.classList.remove("flip");
+}
+function resetBoard() {
+  hasFlippedCard = false;
+  lockBoard = false;
+  document.getElementById("title").textContent = "Brain Power";
+  cards.forEach((card) => {
+    card.classList.remove("flip");
+  });
+  cards.forEach((card) => card.addEventListener("click", flipCard));
+  resetButton.addEventListener("click", resetButton);
+  shuffle();
 }
 
-(function shuffle() {
+function shuffle() {
   cards.forEach((card) => {
     let randomPos = Math.floor(Math.random() * 12);
     card.style.order = randomPos;
   });
-})();
+}
 
 resetButton.addEventListener("click", resetBoard);
-// return all global variables back to default
 
-// flip cards back over
-
-cards.forEach((cards) => cards.addEventListener("click", flipCard));
+resetBoard();
