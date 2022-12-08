@@ -70,11 +70,6 @@ function resetBoard() {
   lockBoard = false;
   // console.log(lockBoard);
   [firstCard, secondCard] = [null, null];
-  document.getElementById("title").textContent = "Brain Power";
-  cards.forEach((card) => {
-    card.classList.remove("flip");
-  });
-  console.log("reset button clicked");
 }
 
 (function shuffle() {
