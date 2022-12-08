@@ -28,6 +28,7 @@ Stretch goals
 * Cards are in a random order 
 * Cards will turn back over in a few seconds if they do not match 
 * Player can only pick two cards at a time
+* you only have 20 seconds to play the game
 
 Check out the deployed live site: 
 https://alidix.github.io/BrainPower-updated/
